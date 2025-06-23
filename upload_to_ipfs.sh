@@ -1,11 +1,11 @@
 #!/bin/bash
 
 FILES_DIR="/home/bc/Downloads/junio"
-echo "📁 Uploading files from: $FILES_DIR"
+echo "Uploading files from: $FILES_DIR"
 
 # Check if IPFS daemon is running
 if ! pgrep -x "ipfs" > /dev/null; then
-  echo "❌ IPFS daemon not running. Please start it with: ipfs daemon"
+  echo "IPFS daemon not running. Please start it with: ipfs daemon"
   exit 1
 fi
 
@@ -27,10 +27,10 @@ for file in "$FILES_DIR"/*; do
     assetID="ipfsFile$padded"
     owner="autoUploader"
 
-    echo "✅ File '$file' uploaded successfully."
-    echo "🔗 Asset ID: $assetID | CID: $cid"
-    echo "👉 To query in Fabric: peer chaincode query -C mychannel -n basic -c '{\"Args\":[\"ReadAsset\",\"$assetID\"]}'"
-    echo "👉 To access in IPFS: ipfs cat $cid or open http://127.0.0.1:8080/ipfs/$cid"
+    echo "File '$file' uploaded successfully."
+    echo "Asset ID: $assetID | CID: $cid"
+    echo "To query in Fabric: peer chaincode query -C mychannel -n basic -c '{\"Args\":[\"ReadAsset\",\"$assetID\"]}'"
+    echo "To access in IPFS: ipfs cat $cid or open http://127.0.0.1:8080/ipfs/$cid"
     echo
 
     # Optional: Save the asset ID and CID to a file
@@ -53,4 +53,4 @@ for file in "$FILES_DIR"/*; do
   fi
 done
 
-echo "✅ All files uploaded. CIDs saved in ipfs_uploaded_files.csv"
+echo "All files uploaded. CIDs saved in ipfs_uploaded_files.csv"
