@@ -20,7 +20,7 @@ i=1
 
 for file in "$FILES_DIR"/*; do
   if [ -f "$file" ]; then
-    echo "📤 Uploading file: $file"
+    echo "Uploading file: $file"
     cid=$(ipfs add -q "$file")
 
     if [ -z "$cid" ]; then
