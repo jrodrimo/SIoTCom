@@ -19,7 +19,7 @@ for file in "$FILES_DIR"/*; do
     cid=$(ipfs add -q "$file")
     
     if [ -z "$cid" ]; then
-      echo "❌ Failed to upload $file to IPFS."
+      echo "Failed to upload $file to IPFS."
       continue
     fi
 
